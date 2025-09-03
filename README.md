@@ -1,6 +1,8 @@
 # sharding-jdbc-seata-demo
-sharding-jdbc集成seata实现分布式事务
-表结构
+#### ##### #### ### sharding-jdbc集成seata实现分布式事务
+**业务表结构**
+
+```sql
 CREATE TABLE `t_order` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `user_id` bigint DEFAULT NULL COMMENT '用户id',
@@ -10,7 +12,10 @@ CREATE TABLE `t_order` (
   `status` int DEFAULT NULL COMMENT '订单状态: 0:创建中 1:已完结',
   PRIMARY KEY (`id`) USING BTREE
 ) COMMENT='订单表';
+```
 
+
+```sql
 CREATE TABLE `t_account` (
   `id` bigint NOT NULL COMMENT 'id',
   `user_id` bigint DEFAULT NULL COMMENT '用户id',
@@ -19,7 +24,9 @@ CREATE TABLE `t_account` (
   `residue` decimal(10,2) DEFAULT NULL COMMENT '剩余可用额度',
   PRIMARY KEY (`id`) USING BTREE
 ) COMMENT='账户表';
+```
 
+```sql
 CREATE TABLE `t_storage` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `product_id` bigint DEFAULT NULL COMMENT '产品id',
@@ -28,3 +35,5 @@ CREATE TABLE `t_storage` (
   `residue` int DEFAULT NULL COMMENT '剩余库存',
   PRIMARY KEY (`id`) USING BTREE
 ) COMMENT='库存';
+```
+
